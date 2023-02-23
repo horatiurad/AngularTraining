@@ -1,4 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { TazzApiOrder } from './tazz-api-order';
+import { TazzApiOrderService } from './tazz-api-order.service';
+import { I18nSelectPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +9,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'order-placer';
+
 }

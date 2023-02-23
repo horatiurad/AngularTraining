@@ -1,0 +1,106 @@
+.orders {
+    margin: 0 0 2em 0;
+    list-style-type: none;
+    padding: 0;
+    width: 15em;
+  }
+  
+  .orders li {
+    display: flex;
+  }
+  
+  .orders button {
+    flex: 1;
+    cursor: pointer;
+    position: relative;
+    left: 0;
+    background-color: #EEE;
+    margin: .5em;
+    padding: 0;
+    border-radius: 4px;
+    display: flex;
+    align-items: stretch;
+    height: 2.3em;
+  }
+  
+  .orders button:hover {
+    color: #2c3a41;
+    background-color: #e6e6e6;
+    left: .1em;
+  }
+  
+  .orders button:active {
+    background-color: #525252;
+    color: #fafafa;
+  }
+  
+  .orders button.selected {
+    background-color: black;
+    color: white;
+  }
+  
+  .orders button.selected:hover {
+    background-color: #505050;
+    color: white;
+  }
+  
+  .orders button.selected:active {
+    background-color: black;
+    color: white;
+  }
+  
+  .orders .tazzId {
+    display: inline-block;
+    font-size: small;
+    color: white;
+    padding: 0.8em 0.7em 0 0.7em;
+    background-color: #405061;
+    line-height: 1.5em;
+    margin-right: .8em;
+    border-radius: 4px 0 0 4px;
+    align-self: center;
+  }
+  
+  .orders .name {
+    align-self: center;
+    
+  }
+  .statusTrue {
+    align-self: right;
+    background: green;
+  }
+  .statusFalse{
+    align-self: right;
+    background: red;
+  }
+  
+  
+  .split {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+  }
+  
+  /* Control the left side */
+  .left {
+    left: 0;
+    
+  }
+  
+  /* Control the right side */
+  .right {
+    right: 0;
+    
+  }
+
+  .centered {
+    position: absolute;
+    top: 25%;
+    left: 20%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }

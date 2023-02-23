@@ -1,0 +1,52 @@
+<div class="split left">
+    <h2>My Orders are</h2>
+<section>
+  <input name="searchInput" [(ngModel)]="searchInput" type="text" placeholder="Type order ID here" size="50"/>
+</section>
+
+<button type="button"  (click)="sendAll()">Send all Orders to external API</button>
+
+    <ul class="orders">
+      <li *ngFor="let or of orders.data.objList | search: searchInput">
+          <div *ngIf="or.order!=null; then thenBlock else elseBlock"></div>
+          <ng-template #thenBlock>
+            <button type="button" (click)="onSelect(or)" >
+              <span class="tazzId">{{or.order.id}}</span>
+              <span class="name">price : {{or.order.total}}</span>
+              <div *ngIf="or.isSent==0||or.isSent==undefined; then thenBlock else elseBlock"></div>
+                  <ng-template #thenBlock>
+                    <span class="statusFalse">unsent</span>
+                    
+                  </ng-template>
+                  <ng-template #elseBlock>
+                    <span class="statusTrue">sent</span>
+                  </ng-template>
+            </button>
+            <button type="button" (click)="onSelectSEND(or)" [disabled]="or.isSent==1">  SEND  </button>
+          </ng-template>
+          <ng-template #elseBlock>
+            <button type="button"   (click)="onSelect(or)" >
+              <span class="tazzId">{{or.order_id}}</span>
+              <span class="name">price : {{or.payment_total}}</span>
+              <div *ngIf="or.isSent==0||or.isSent==undefined then thenBlock else elseBlock"></div>
+                  <ng-template #thenBlock>
+                    <span class="statusFalse">unsent</span>
+                   
+                  </ng-template>
+                  <ng-template #elseBlock>
+                    <span class="statusTrue">sent</span>
+                  </ng-template>
+            </button>
+            <button type="button" (click)="onSelectSEND(or)" [disabled]="or.isSent==1">  SEND  </button>
+          </ng-template>
+       
+      </li>
+    </ul>
+
+</div>
+
+<div class="split right">
+  <div class="centered">
+    <!-- <app-order-details [selectedOrderC]='selectedOrder'></app-order-details> -->
+  </div>
+</div>

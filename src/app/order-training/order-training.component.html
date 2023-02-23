@@ -1,0 +1,35 @@
+<div>
+    <h3>Order details </h3>
+<div  *ngIf="selectedOrderC==null; then thenBlock else elseBlock"></div>
+    <ng-template #thenBlock>
+        <p>No selected orders</p>
+    </ng-template>
+    <ng-template #elseBlock>
+        <div *ngIf="selectedOrderC.order!=null; then thenBlock else elseBlock"></div>
+        <ng-template #thenBlock>
+            <p>Id: {{selectedOrderC.order.id}}</p>
+            <p>Nume client: {{selectedOrderC.client.name}}</p>
+            <p>Telefon: {{selectedOrderC.client.phone}}</p>
+            <p>Lista produse:</p>
+            <li *ngFor="let prod of selectedOrderC.products">
+                <span>Nume produs: {{prod.title}}</span>
+                <span>.........</span>
+                <span>{{prod.qty}} buc.</span>
+            </li>
+            <p>Total: {{selectedOrderC.order.total}}</p>
+        </ng-template>
+        <ng-template #elseBlock>
+            <p>Id: {{selectedOrderC.order_id}}</p>
+            <p>Nume client: {{selectedOrderC.customer.name}}</p>
+            <p>Telefon: {{selectedOrderC.customer.phone_number}}</p>
+            <p>Lista produse:</p>
+            <li *ngFor="let prod of selectedOrderC.products">
+                <span>Nume produs: {{prod.name}}</span>
+                <span>.........</span>
+                <span>{{prod.quantity}} buc.</span>
+            </li>
+            <p>Total: {{selectedOrderC.payment_total/100}}</p>
+        </ng-template>
+    </ng-template>
+   
+</div>
